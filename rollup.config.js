@@ -23,7 +23,7 @@ export default {
     }
   ],
   plugins: [
-    external(),
+    external(['crypto']),
     postcss({
       modules: true
     }),
@@ -32,7 +32,9 @@ export default {
     babel({
       exclude: 'node_modules/**'
     }),
-    resolve(),
+    resolve({
+      preferBuiltins: true
+    }),
     commonjs()
   ]
 }
