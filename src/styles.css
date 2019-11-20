@@ -1,8 +1,26 @@
-/* add css styles here (optional) */
+.buttonSubmit {
+  border: none !important;
+  display:inline-block !important;
+  text-align: center !important;
+  padding: 7px 20px !important;
+  color: #fff !important; 
+  font-size:16px !important; 
+  font-weight: 600 !important; 
+  font-family:OpenSans, sans-serif; 
+  cursor: pointer !important; 
+  border-radius: 2px !important;
+  background: rgb(122,183,43) !important;
+}
 
-.test {
-  display: inline-block;
-  margin: 2em auto;
-  border: 2px solid #000;
-  font-size: 2em;
+.buttonSubmit img {
+  margin-right: 7px !important; 
+  vertical-align: middle !important;
+}
+
+.buttonSubmit span {
+  vertical-align: middle !important;
+}
+
+.buttonSubmit:hover {
+  opacity: 0.5;
 }
