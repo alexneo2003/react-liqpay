@@ -34,8 +34,8 @@ class Example extends Component {
           description="Payment for product"
           currency="UAH"
           orderId={Math.floor(1 + Math.random() * 900000000)}
-          result_url="http://domen.com/user/account"
-          server_url="http://server.domen.com/liqpay"
+          result_url="http://domain.com/user/account"
+          server_url="http://server.domain.com/liqpay"
           product_description="Online courses"
           style={{ padding: "8px" }}
         />
@@ -47,8 +47,8 @@ class Example extends Component {
           description="Payment for subscription"
           currency="USD"
           orderId={Math.floor(1 + Math.random() * 900000000)}
-          result_url="http://domen.com/user/account"
-          server_url="http://server.domen.com/liqpay"
+          result_url="http://domain.com/user/account"
+          server_url="http://server.domain.com/liqpay"
           product_description="Online courses"
           style={{ padding: "8px" }}
         />
