@@ -74,6 +74,8 @@ class Example extends Component {
   - additional props in component - can pass 'style', 'result_url', 'server_url', 'product_description' etc...
   - change base64 function - support cyrillic characters
   - costume title for button
+- v1.2.0
+  - packages upgrade
 
 ## License
 
