@@ -76,6 +76,8 @@ class Example extends Component {
   - costume title for button
 - v1.2.0
   - packages upgrade
+- v1.2.1
+  - typos correction
 
 ## License
 
