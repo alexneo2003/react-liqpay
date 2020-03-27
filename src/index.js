@@ -1,9 +1,16 @@
 import React from 'react'
-import btoa from 'btoa'
 import crypto from 'crypto'
 import PropTypes from 'prop-types'
 
-import style from './styles.css'
+import styleFile from './styles.css'
+
+function utf8_to_b64(str) {
+  return window.btoa(unescape(encodeURIComponent(str)))
+}
+
+function b64_to_utf8(str) {
+  return decodeURIComponent(escape(window.atob(str)))
+}
 
 const LiqPayPay = ({
   publicKey,
@@ -12,6 +19,8 @@ const LiqPayPay = ({
   currency = 'UAH',
   description = 'test',
   orderId = Math.floor(1 + Math.random() * 900000000),
+  title = 'Payment',
+  style,
   ...props
 }) => {
   const jsonString = {
@@ -21,32 +30,31 @@ const LiqPayPay = ({
     amount: amount,
     currency: currency,
     description: description,
-    order_id: orderId
+    order_id: orderId,
+    ...props
   }
 
-  const data = btoa(JSON.stringify(jsonString))
+  const data = utf8_to_b64(JSON.stringify(jsonString))
   const signString = privateKey + data + privateKey
-
   const sha1 = crypto.createHash('sha1')
   sha1.update(signString)
   const signature = sha1.digest('base64')
 
-  console.log('jsonString', JSON.stringify(jsonString))
   return (
     <form
       method='POST' action='https://www.liqpay.ua/api/3/checkout'
       acceptCharset='utf-8'
-      {...props}
+      style={{ ...style }}
     >
       <input
         type='hidden' name='data' value={data}
       />
       <input type='hidden' name='signature' value={signature} />
-      <button className={style.buttonSubmit}>
+      <button className={styleFile.buttonSubmit}>
         <img
           src='https://static.liqpay.ua/buttons/logo-small.png' name='btn_text'
         />
-        <span>Оплатить {amount} {currency}</span>
+        <span>{title} {amount} {currency}</span>
       </button>
     </form>
   )
@@ -60,6 +68,8 @@ const LiqPaySubscribe = ({
   currency = 'UAH',
   description = 'test',
   orderId = Math.floor(1 + Math.random() * 900000000),
+  title = 'Subscribe',
+  style,
   ...props
 }) => {
   const jsonString = {
@@ -71,32 +81,32 @@ const LiqPaySubscribe = ({
     amount: amount,
     currency: currency,
     description: description,
-    order_id: orderId
+    order_id: orderId,
+    ...props
   }
 
-  const data = btoa(JSON.stringify(jsonString))
+  const data = utf8_to_b64(JSON.stringify(jsonString))
   const signString = privateKey + data + privateKey
 
   const sha1 = crypto.createHash('sha1')
   sha1.update(signString)
   const signature = sha1.digest('base64')
 
-  console.log('jsonString', JSON.stringify(jsonString))
   return (
     <form
       method='POST' action='https://www.liqpay.ua/api/3/checkout'
       acceptCharset='utf-8'
-      {...props}
+      style={{ ...style }}
     >
       <input
         type='hidden' name='data' value={data}
       />
       <input type='hidden' name='signature' value={signature} />
-      <button className={style.buttonSubmit}>
+      <button className={styleFile.buttonSubmit}>
         <img
           src='https://static.liqpay.ua/buttons/logo-small.png' name='btn_text'
         />
-        <span>Оплатить {amount} {currency}</span>
+        <span>{title} {amount} {currency}</span>
       </button>
     </form>
   )
@@ -108,8 +118,9 @@ LiqPayPay.propTypes = {
   currency: PropTypes.string.isRequired,
   amount: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  orderId: PropTypes.any.isRequired
-
+  orderId: PropTypes.any.isRequired,
+  title: PropTypes.string.isRequired,
+  style: PropTypes.string
 }
 
 LiqPaySubscribe.propTypes = {
@@ -119,7 +130,9 @@ LiqPaySubscribe.propTypes = {
   amount: PropTypes.string.isRequired,
   subscribePeriodicity: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  orderId: PropTypes.any.isRequired
+  orderId: PropTypes.any.isRequired,
+  title: PropTypes.string.isRequired,
+  style: PropTypes.string
 }
 
 export { LiqPayPay, LiqPaySubscribe }
