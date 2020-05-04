@@ -1,19 +1,19 @@
 .buttonSubmit {
   border: none !important;
-  display:inline-block !important;
+  display: inline-block !important;
   text-align: center !important;
   padding: 7px 20px !important;
-  color: #fff !important; 
-  font-size:16px !important; 
-  font-weight: 600 !important; 
-  font-family:OpenSans, sans-serif; 
-  cursor: pointer !important; 
+  color: #fff !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  font-family: OpenSans, sans-serif;
+  cursor: pointer !important;
   border-radius: 2px !important;
-  background: rgb(122,183,43) !important;
+  background: rgb(122, 183, 43) !important;
 }
 
 .buttonSubmit img {
-  margin-right: 7px !important; 
+  margin-right: 7px !important;
   vertical-align: middle !important;
 }
 
@@ -23,4 +23,9 @@
 
 .buttonSubmit:hover {
   opacity: 0.5;
+}
+
+.buttonSubmit:disabled {
+  opacity: 0.5;
+  cursor: default !important;
 }
