@@ -1,7 +1,14 @@
 {
   "name": "react-liqpay",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "description": "React component for LiqPay payment system",
+  "keywords": [
+    "react",
+    "liqpay",
+    "payments",
+    "api",
+    "privatbank"
+  ],
   "author": "alexneo2003",
   "license": "MIT",
   "repository": "alexneo2003/react-liqpay",
@@ -30,13 +37,16 @@
     "@babel/core": "^7.9.0",
     "@babel/plugin-external-helpers": "^7.8.3",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-export-default-from": "^7.8.3",
     "@babel/preset-env": "^7.9.0",
     "@babel/preset-react": "^7.9.4",
+    "@rollup/plugin-json": "^4.0.2",
     "@svgr/rollup": "^5.3.0",
     "babel-eslint": "^10.1.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
+    "builtin-modules": "^3.1.0",
     "cross-env": "^7.0.2",
     "eslint": "^6.8.0",
     "eslint-config-standard": "^14.1.1",
@@ -60,5 +70,8 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "dependencies": {
+    "classnames": "^2.2.6"
+  }
 }
