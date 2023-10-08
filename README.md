@@ -149,7 +149,7 @@ class Example extends Component {
   - updated example
 - v1.4.0
   - update README.md
-  - upgrade react version to ?
+  - upgrade react peer dependency version to 18.0.0
   - added typechecking
 
 ## License
