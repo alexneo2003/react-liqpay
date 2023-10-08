@@ -77,13 +77,15 @@ class Example extends Component {
         <LiqPayPay
           publicKey={process.env.REACT_APP_PUBLIC_KEY}
           privateKey={process.env.REACT_APP_PRIVATE_KEY}
+          amount="3"
           description="Payment for product"
+          currency="UAH"
           orderId={Math.floor(1 + Math.random() * 900000000)}
           result_url="http://domain.com/user/account"
           server_url="http://server.domain.com/liqpay"
           product_description="Online courses"
           style={{ margin: "8px" }}
-          extra={[<ButtonComponent key="1" />]}
+          extra={<ButtonComponent key="1" />}
         />
       </div>
     );
@@ -145,6 +147,10 @@ class Example extends Component {
   - props descriptions
   - update component picture
   - updated example
+- v1.4.0
+  - update README.md
+  - upgrade react version to ?
+  - added typechecking
 
 ## License
 
