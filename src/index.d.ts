@@ -1,6 +1,4 @@
-import React from 'react'
-// export LiqPayPay from './LiqPayPay'
-// export LiqPaySubscribe from './LiqPaySubscribe'
+import * as React from 'react'
 
 type LiqPayCheckoutOptions = {
   version?: '3' | '2' | '1'
@@ -35,6 +33,7 @@ type LiqPaySubscribeProps = Exclude<LiqPayCheckoutOptions, 'orderId'> & {
   disabled?: boolean
 }
 
-export const LiqPayPay = (props: LiqPayPayProps) => React.Element
-
-export const LiqPaySubscribe = (props: LiqPaySubscribeProps) => React.Element
+export module ReactLiqPay {
+  export type LiqPayPay = (props: LiqPayPayProps) => React.ElementType
+  export type LiqPaySubscribe = (props: LiqPaySubscribeProps) => React.ElementType
+}

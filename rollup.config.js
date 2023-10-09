@@ -7,6 +7,7 @@ import url from 'rollup-plugin-url'
 import svgr from '@svgr/rollup'
 import json from '@rollup/plugin-json'
 import builtins from 'builtin-modules'
+import copy from 'rollup-plugin-copy'
 
 import pkg from './package.json'
 
@@ -40,7 +41,12 @@ export default {
       browser: true
     }),
     commonjs(),
-    json()
+    json(),
+    copy({
+      targets: [
+        { src: 'src/index.d.ts', dest: 'dist' }
+      ]
+    }),
   ],
   external: builtins
 }
