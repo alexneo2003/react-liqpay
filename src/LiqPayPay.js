@@ -52,7 +52,7 @@ const LiqPayPay = ({
           <img
             src='https://static.liqpay.ua/buttons/logo-small.png' name='btn_text'
           />
-          <span>{title} {amount} {currency}</span>
+          <span>{title} {`${amount}`} {currency}</span>
         </button>
       )}
     </form>
