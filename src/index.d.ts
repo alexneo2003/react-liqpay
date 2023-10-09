@@ -22,17 +22,18 @@ interface LiqPayCheckoutOptions {
   extra?: React.ReactElement
 }
 
-type LiqPayPayProps = Omit<LiqPayCheckoutOptions, 'order_id'> & {
+type LiqPayPayProps = Omit<LiqPayCheckoutOptions, 'order_id' | 'action'> & {
   title: string
-  order_id: number
+  orderId: number | string
   style?: React.CSSProperties
   disabled?: boolean
 }
 
-type LiqPaySubscribeProps = Omit<LiqPayCheckoutOptions, 'order_id'> & {
+type LiqPaySubscribeProps = Omit<LiqPayCheckoutOptions, 'order_id' | 'action' | 'subscribe_periodicity'> & {
   title: string
-  subscribePeriodicity: string
-  order_id: number
+  subscribe_date_start?: undefined // Date of the first payment. Time must be specified in the following format 2015-03-31 00:00:00 по UTC. If past date is indicated - subscription will be activated with the date and time of request
+  subscribePeriodicity?: 'month' | 'year'
+  orderId: number | string
   style?: React.CSSProperties
   disabled?: boolean
 }

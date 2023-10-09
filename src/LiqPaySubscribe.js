@@ -30,7 +30,7 @@ const LiqPaySubscribe = ({
     amount: amount,
     currency: currency,
     description: description,
-    order_id: orderId,
+    order_id: `${orderId}`,
     ...props
   }
 
